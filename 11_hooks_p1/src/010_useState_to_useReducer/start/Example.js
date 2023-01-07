@@ -3,11 +3,14 @@ import { useState,useReducer } from 'react'
 const Example = () => {
 
   const [ state, setState ] = useState(0)
-  const [ rstate, dispatch ] = useReducer((prev, action) => {
-    if (action === '+') {
-      return ++prev
-    } else if (action === '-') {
-      return --prev
+  const [ rstate, dispatch ] = useReducer((prev, {type}) => {
+    switch (type) {
+      case '+':
+        return ++prev
+      case '-':
+        return --prev
+      default:
+        throw new Error('不明なactionです。')
     }
   }, 0)
 
@@ -17,11 +20,11 @@ const Example = () => {
   }
 
   const rcountUp = () => {
-    dispatch('+')
+    dispatch({ type: '+'})
   }
 
   const rcountDown = () => {
-    dispatch('-')
+    dispatch({ type: '-'})
   }
 
   return (

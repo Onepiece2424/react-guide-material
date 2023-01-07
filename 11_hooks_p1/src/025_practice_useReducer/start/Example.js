@@ -44,6 +44,13 @@ const Example = () => {
         />
       </div>
       <select value={state.type} onChange={calculate}>
+        {CALC_OPTIONS.map((calc) => {
+          return (
+            <option key={calc}>
+              {calc}
+            </option>
+          )
+        })}
       </select>
       <h1>結果：{state.result}</h1>
     </>

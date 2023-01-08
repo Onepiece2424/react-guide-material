@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { ThemeContext } from "../Example";
+import { useTheme } from "../context/ThemeContext";
 
 const Main = () => {
 
-  const [theme] = useContext(ThemeContext)
+  const [theme] = useTheme()
 
   return (
     <main className={`content-${theme}`}>

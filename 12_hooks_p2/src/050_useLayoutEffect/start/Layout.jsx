@@ -7,7 +7,7 @@ useLayoutEffect(() => {
     if (name === "dev.K") {
       setName("Taro");
     }
-  }, []);
+  }, [name]);
 
   return (
     <div>

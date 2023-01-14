@@ -1,32 +1,35 @@
 import { useState, useEffect, useLayoutEffect } from 'react'
 
 const Timer = () => {
+  // タイマーの秒数を管理するstate
   const [time, setTime] = useState(0);
+
+  // ボタンの切り替えを行うstate
   const [start, setStart] = useState(false)
 
   useEffect(() => {
-    // console.log('init');
+    console.log('init');
     let intervalId = null;
     if (start) {
       intervalId = window.setInterval(() => {
-      // console.log('interval running');
+      console.log('interval running');
       setTime(prev => prev + 1);
       }, 1000);
     }
     return () => {
       window.clearInterval(intervalId)
-      // console.log('end');
+      console.log('end');
     }
   }, [start])
 
   useEffect(() => {
-    // console.log('updated');
+    console.log('updated');
     document.title = 'counter:' + time;
     window.localStorage.setItem('time-key', time);
 
     return () => {
       // debugger
-      // console.log('updated end');
+      console.log('updated end');
     }
   }, [time]);
 

@@ -1,9 +1,9 @@
-import { useLayoutEffect, useEffect, useState, useRef } from "react";
+import { useLayoutEffect, useState } from "react";
 
 const Random = () => {
   const [state, setState] = useState(0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (state === 0) {
       setState(Math.random() * 300);
     }
